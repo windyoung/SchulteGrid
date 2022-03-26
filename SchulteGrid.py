@@ -119,8 +119,8 @@ if __name__ == '__main__':
         a.append(thegrid_.DrawTableSingle(thegrid_.GenNumbers(5)))
         a.append(thegrid_.DrawTableSingle(thegrid_.GenNumbers(6)))
         a.append(thegrid_.DrawTableSingle(thegrid_.GenNumbers(6)))
-    # page_1()
-    page_2()
+    page_1()
+    # page_2()
 
     thegrid_.GenGridPdf(a)
 
