@@ -43,6 +43,7 @@ class SchulteGrid():
         # 设置字体 为楷体后能美化展示
         base_path = os.path.dirname(__file__)
         registerFont(TTFont('kaiti', os.path.join(base_path, 'simkai.ttf')))
+        registerFont(TTFont('misans', os.path.join(base_path, 'MiSans-Normal.ttf')))
         # Create a function to draw each label. This will be given the ReportLab drawing  object to draw on, the dimensions (NB. these will be in points, the unit  ReportLab uses) of the label, and the object to render.
         #
 
