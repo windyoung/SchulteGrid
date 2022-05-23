@@ -43,9 +43,9 @@ class SchulteGrid():
         # 设置字体 为楷体后能美化展示
         base_path = os.path.dirname(__file__)
         registerFont(TTFont('kaiti', os.path.join(base_path, 'simkai.ttf')))
-        registerFont(TTFont('misans', os.path.join(base_path, 'MiSans-Normal.ttf')))
+        registerFont(TTFont('misans', os.path.join(
+            base_path, 'MiSans-Normal.ttf')))
         # Create a function to draw each label. This will be given the ReportLab drawing  object to draw on, the dimensions (NB. these will be in points, the unit  ReportLab uses) of the label, and the object to render.
-        #
 
         def draw_grids(label, width, height, obj):
             "逐行添加舒尔特方格"
@@ -101,27 +101,18 @@ if __name__ == '__main__':
 
     # 第一页
     def page_1():
-        a.append(thegrid_.DrawTableSingle(thegrid_.GenNumbers(3)))
-        a.append(thegrid_.DrawTableSingle(thegrid_.GenNumbers(3)))
-        a.append(thegrid_.DrawTableSingle(thegrid_.GenNumbers(4)))
-        a.append(thegrid_.DrawTableSingle(thegrid_.GenNumbers(4)))
-        a.append(thegrid_.DrawTableSingle(thegrid_.GenNumbers(3)))
-        a.append(thegrid_.DrawTableSingle(thegrid_.GenNumbers(3)))
-        a.append(thegrid_.DrawTableSingle(thegrid_.GenNumbers(4)))
-        a.append(thegrid_.DrawTableSingle(thegrid_.GenNumbers(4)))
-    # 第二页
+        print_grid_list = [3, 3, 4, 4, 3, 3, 4, 4, ]
+        for i in print_grid_list:
+            a.append(thegrid_.DrawTableSingle(thegrid_.GenNumbers(i)))
 
-    def page_2():
-        a.append(thegrid_.DrawTableSingle(thegrid_.GenNumbers(2)))
-        a.append(thegrid_.DrawTableSingle(thegrid_.GenNumbers(3)))
-        a.append(thegrid_.DrawTableSingle(thegrid_.GenNumbers(4)))
-        a.append(thegrid_.DrawTableSingle(thegrid_.GenNumbers(4)))
-        a.append(thegrid_.DrawTableSingle(thegrid_.GenNumbers(5)))
-        a.append(thegrid_.DrawTableSingle(thegrid_.GenNumbers(5)))
-        a.append(thegrid_.DrawTableSingle(thegrid_.GenNumbers(6)))
-        a.append(thegrid_.DrawTableSingle(thegrid_.GenNumbers(6)))
+    # 第二页
+    def page_test():
+        test_grids = [2, 3, 4, 5, 6]
+        for i in test_grids:
+            a.append(thegrid_.DrawTableSingle(thegrid_.GenNumbers(i)))
+
     page_1()
-    # page_2()
+    # page_test()
 
     thegrid_.GenGridPdf(a)
 
