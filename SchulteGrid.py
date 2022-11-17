@@ -21,23 +21,25 @@ class SchulteGrid():
     def GenNumbers(self, size_):
         "生成数字随机序列"
         self.size_ = abs(size_)
-        self.max_ = size_*size_
-        numbers_ = list(range(1, self.max_+1))
+        self.max_ = size_ * size_
+        numbers_ = list(range(1, self.max_ + 1))
         random.shuffle(numbers_)
         print('-' * 25)
         print(numbers_)
         return numbers_
-    def GenCharacters(self,size_):
-        characters=[]
+
+    def GenCharacters(self, size_):
+        characters = []
         self.size_ = abs(size_)
-        if size_>5:
-            size_ =5
-        self.max_ = size_*size_
+        if size_ > 5:
+            size_ = 5
+            self.size_ = 5
+
+        self.max_ = size_ * size_
         characters = list(string.ascii_lowercase)
         characters.append(' ')
         random.shuffle(characters)
         return characters[0:self.max_]
-
 
     def DrawTableSingle(self, thenumbers_):
         "绘制方格"
@@ -45,7 +47,7 @@ class SchulteGrid():
         table_ = PrettyTable(border=True, header=False, hrules=ALL)
         i = 0
         while i < self.max_:
-            table_.add_row(thenumbers_[i: i+self.size_])
+            table_.add_row(thenumbers_[i: i + self.size_])
             i += self.size_
         res_ = table_.get_string()
         print(res_)
@@ -68,29 +70,29 @@ class SchulteGrid():
             data_ = str(obj).split('\n')
             lines_ = len(data_)
             # 为不同大小的方格设置格式
-            if lines_-1 == 4:  # 2*2
+            if lines_ - 1 == 4:  # 2*2
                 for index, i_ in enumerate(data_, 1):
-                    s = shapes.String(2, height-32*index, i_,
+                    s = shapes.String(2, height - 32 * index, i_,
                                       fontSize=36, fontName="kaiti")
                     label.add(s)
-            elif lines_-1 == 6:  # 3*3
+            elif lines_ - 1 == 6:  # 3*3
                 for index, i_ in enumerate(data_, 1):
-                    s = shapes.String(2, height-24*index, i_,
+                    s = shapes.String(2, height - 24 * index, i_,
                                       fontSize=22, fontName="kaiti")
                     label.add(s)
-            elif lines_-1 == 8:  # 4*4
+            elif lines_ - 1 == 8:  # 4*4
                 for index, i_ in enumerate(data_, 1):
-                    s = shapes.String(2, height-20*index, i_,
+                    s = shapes.String(2, height - 20 * index, i_,
                                       fontSize=18, fontName="kaiti")
                     label.add(s)
-            elif lines_-1 == 10:  # 5*5
+            elif lines_ - 1 == 10:  # 5*5
                 for index, i_ in enumerate(data_, 1):
-                    s = shapes.String(2, height-5-16*index,
+                    s = shapes.String(2, height - 5 - 16 * index,
                                       i_, fontSize=14, fontName="kaiti")
                     label.add(s)
-            elif lines_-1 == 12:  # 6*6
+            elif lines_ - 1 == 12:  # 6*6
                 for index, i_ in enumerate(data_, 1):
-                    s = shapes.String(2, height-10-12*index,
+                    s = shapes.String(2, height - 10 - 12 * index,
                                       i_, fontSize=12, fontName="kaiti")
                     label.add(s)
 
@@ -126,11 +128,11 @@ if __name__ == '__main__':
         test_grids = [2, 3, 4, 5, 6]
         for i in test_grids:
             a.append(thegrid_.DrawTableSingle(thegrid_.GenNumbers(i)))
+
     def page_chars():
         test_grids = [2, 3, 4, 5, 6]
         for i in test_grids:
             a.append(thegrid_.DrawTableSingle(thegrid_.GenCharacters(i)))
-
 
     page_chars()
     # t=thegrid_.GenCharacters(4)
