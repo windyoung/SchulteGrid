@@ -128,16 +128,14 @@ if __name__ == '__main__':
         test_grids = [2, 3, 4, 5, 6]
         for i in test_grids:
             a.append(thegrid_.DrawTableSingle(thegrid_.GenNumbers(i)))
-
+    
+    # 使用字母来做舒尔特方格
     def page_chars():
         test_grids = [2, 3, 4, 5, 6]
         for i in test_grids:
             a.append(thegrid_.DrawTableSingle(thegrid_.GenCharacters(i)))
 
     page_chars()
-    # t=thegrid_.GenCharacters(4)
-    # print(len(t),t)
-    # page_test()
 
     # thegrid_.GenGridPdf(a)
 
