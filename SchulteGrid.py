@@ -137,7 +137,7 @@ if __name__ == '__main__':
 
     page_chars()
 
-    # thegrid_.GenGridPdf(a)
+    thegrid_.GenGridPdf(a)
 
 
 # JS 生成舒尔特方格？
