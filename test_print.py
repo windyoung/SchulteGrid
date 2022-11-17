@@ -1,6 +1,7 @@
 import win32print
 import win32ui
 import win32con
+import string
 
 def print2Printer(self):
     # https://blog.csdn.net/ssshen14/article/details/77771181
@@ -16,3 +17,13 @@ def print2Printer(self):
                     (0, INCH * -1, INCH * 8, INCH * -2), win32con.DT_CENTER)
     hDC.EndPage ()
     hDC.EndDoc ()
+
+
+def p_string():
+    print(string.ascii_letters)
+    print(string.ascii_lowercase)
+    print(string.ascii_uppercase)
+
+
+    # string.ascii_letters
+p_string()

@@ -1,4 +1,9 @@
+# -*- coding=utf-8 -*-
+#!/usr/bin/env python3
+
+import string
 from email import header
+import math
 import random
 import labels
 import os
@@ -15,13 +20,24 @@ class SchulteGrid():
 
     def GenNumbers(self, size_):
         "生成数字随机序列"
-        self.size_ = size_
+        self.size_ = abs(size_)
         self.max_ = size_*size_
         numbers_ = list(range(1, self.max_+1))
         random.shuffle(numbers_)
         print('-' * 25)
         print(numbers_)
         return numbers_
+    def GenCharacters(self,size_):
+        characters=[]
+        self.size_ = abs(size_)
+        if size_>5:
+            size_ =5
+        self.max_ = size_*size_
+        characters = list(string.ascii_lowercase)
+        characters.append(' ')
+        random.shuffle(characters)
+        return characters[0:self.max_]
+
 
     def DrawTableSingle(self, thenumbers_):
         "绘制方格"
@@ -110,11 +126,18 @@ if __name__ == '__main__':
         test_grids = [2, 3, 4, 5, 6]
         for i in test_grids:
             a.append(thegrid_.DrawTableSingle(thegrid_.GenNumbers(i)))
+    def page_chars():
+        test_grids = [2, 3, 4, 5, 6]
+        for i in test_grids:
+            a.append(thegrid_.DrawTableSingle(thegrid_.GenCharacters(i)))
 
-    page_1()
+
+    page_chars()
+    # t=thegrid_.GenCharacters(4)
+    # print(len(t),t)
     # page_test()
 
-    thegrid_.GenGridPdf(a)
+    # thegrid_.GenGridPdf(a)
 
 
 # JS 生成舒尔特方格？
