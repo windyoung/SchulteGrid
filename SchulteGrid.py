@@ -34,7 +34,6 @@ class SchulteGrid():
         if size_ > 5:
             size_ = 5
             self.size_ = 5
-
         self.max_ = size_ * size_
         characters = list(string.ascii_lowercase)
         characters.append(' ')
@@ -95,7 +94,6 @@ class SchulteGrid():
                     s = shapes.String(2, height - 10 - 12 * index,
                                       i_, fontSize=12, fontName="kaiti")
                     label.add(s)
-
         # Create the sheet.
         sheet = labels.Sheet(specs, draw_grids, border=True)
         # sheet.partial_page(1, ((1, 1), (2, 2), (4, 2)))
@@ -116,8 +114,9 @@ if __name__ == '__main__':
     # thegrid_.DrawTableSingle(thegrid_.GenNumbers(4))
     a = []
     # 一页最大8个舒尔特方格,规格设置2-6行宫格
-
+    # 2 - 6 表示宫格大小 , 一页最多放8个
     # 第一页
+
     def page_1():
         print_grid_list = [3, 3, 4, 4, 3, 3, 4, 4, ]
         for i in print_grid_list:
@@ -128,14 +127,19 @@ if __name__ == '__main__':
         test_grids = [2, 3, 4, 5, 6]
         for i in test_grids:
             a.append(thegrid_.DrawTableSingle(thegrid_.GenNumbers(i)))
-    
+
     # 使用字母来做舒尔特方格
-    def page_chars():
-        test_grids = [2, 3, 4, 5, 6]
+    def test_page_chars():
+        test_grids = [2, 3, 4, 5, 6, 6]
         for i in test_grids:
             a.append(thegrid_.DrawTableSingle(thegrid_.GenCharacters(i)))
 
-    page_chars()
+    def page_chars():
+        test_grids = [2, 3, 4, 5, 6, 6]
+        for i in test_grids:
+            a.append(thegrid_.DrawTableSingle(thegrid_.GenCharacters(i)))
+
+    page_1()
 
     thegrid_.GenGridPdf(a)
 
