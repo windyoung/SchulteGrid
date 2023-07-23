@@ -31,6 +31,7 @@ class SchulteGrid():
     def GenCharacters(self, size_):
         characters = []
         self.size_ = abs(size_)
+        # 6阶以上统一定制为五阶
         if size_ > 5:
             size_ = 5
             self.size_ = 5
@@ -116,30 +117,46 @@ if __name__ == '__main__':
     # 一页最大8个舒尔特方格,规格设置2-6行宫格
     # 2 - 6 表示宫格大小 , 一页最多放8个
     # 第一页
+    def page_too_easy():
+        print_grid_list = [3, 3, 2, 2, 3, 3, 2, 2]
+        for i in print_grid_list:
+            a.append(thegrid_.DrawTableSingle(thegrid_.GenNumbers(i)))
 
-    def page_1():
-        print_grid_list = [3, 3, 4, 4, 3, 3, 4, 4, ]
+    def page_easy():
+        print_grid_list = [3, 3, 4, 4, 3, 3, 4, 4]
+        for i in print_grid_list:
+            a.append(thegrid_.DrawTableSingle(thegrid_.GenNumbers(i)))
+
+    def page_normal():
+        print_grid_list = [3, 3, 4, 4, 5, 5, 4, 4]
+        for i in print_grid_list:
+            a.append(thegrid_.DrawTableSingle(thegrid_.GenNumbers(i)))
+
+    def page_challenge():
+        print_grid_list = [3, 3, 4, 4, 5, 5, 4, 4]
         for i in print_grid_list:
             a.append(thegrid_.DrawTableSingle(thegrid_.GenNumbers(i)))
 
     # 第二页
+
     def page_test():
         test_grids = [2, 3, 4, 5, 6]
         for i in test_grids:
             a.append(thegrid_.DrawTableSingle(thegrid_.GenNumbers(i)))
 
     # 使用字母来做舒尔特方格
+    # 6阶以上统一定制为五阶
     def test_page_chars():
-        test_grids = [2, 3, 4, 5, 6, 6]
+        test_grids = [2, 3, 4, 5, 6]
         for i in test_grids:
             a.append(thegrid_.DrawTableSingle(thegrid_.GenCharacters(i)))
 
     def page_chars():
-        test_grids = [2, 3, 4, 5, 6, 6]
+        test_grids = [3, 3, 4, 4, 5, 5]
         for i in test_grids:
             a.append(thegrid_.DrawTableSingle(thegrid_.GenCharacters(i)))
 
-    page_1()
+    page_normal()
 
     thegrid_.GenGridPdf(a)
 
